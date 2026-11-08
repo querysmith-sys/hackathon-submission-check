@@ -23,15 +23,9 @@ params:
       Technical execution: does it run, and can someone clone the repo and reproduce it?
       Creativity and impact: is it a fresh idea that solves a real problem?
       Presentation: do the demo video and README make clear how it works?
-  provider:
-    type: provider
-    description: Which coding agent backs both. The first one installed is chosen.
-    default: [claude, codex, opencode]
-    input: advanced
-  location:
-    type: location
+  machine:
+    type: machine
     description: The machine both run on.
-    default: local
     input: advanced
   workspace:
     type: directory
@@ -50,8 +44,8 @@ agents:
     addressing: owner
     auto_mode: true
     auto_approve: false
-    provider: "{provider}"
-    location: "{location}"
+    provider: opencode
+    machine: "{machine}"
     directory: "{workspace}"
     instructions: |
       You are the repo agent of a pre-submission check. You take a repository
@@ -113,8 +107,8 @@ agents:
     addressing: owner
     auto_mode: true
     auto_approve: false
-    provider: "{provider}"
-    location: "{location}"
+    provider: opencode
+    machine: "{machine}"
     directory: "{workspace}"
     instructions: |
       You are the judge agent of a pre-submission check. You review a project
